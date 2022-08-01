@@ -34,7 +34,7 @@ func (d *DB) DeletePost(id string) error {
 }
 
 func (d *DB) DeleteAllPosts() error {
-	_, err := d.db.Exec("DELETE FROM posts")
+	_, err := d.db.Exec("TRUNCATE TABLE posts RESTART IDENTITY")
 	if err != nil {
 		return err
 	}
